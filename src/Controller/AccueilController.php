@@ -8,5 +8,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AccueilController extends AbstractController
 {
-    // À compléter
+   #[Route('/')]
+   public function index() : Response
+   {
+    $nbOuv = random_int(10,10000);
+     return $this->render("accueil.html.twig",[
+        "nbOuv" => $nbOuv,
+     ]);
+   }
 }
