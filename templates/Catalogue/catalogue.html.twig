@@ -1,0 +1,19 @@
+{# templates/Catalogue/catalogue.html.twig #}
+
+<h1>
+Liste des Livres :
+</h1>
+ <br></br>
+
+ {% for livre in livres %}
+
+ <h2>Titre : {{livre.titre}} </h2>
+  <br></br>
+ <p><strong> Auteur : {{livre.auteur}} </p>
+  <br></br>
+ <p><strong> Disponible : {{livre.disponible ? 'oui' : 'non' }} </p>
+  <br></br>
+ <p><strong> Nombre d'exemplaires : {{livre.nombre_exemplaires}} </p>
+
+ 
+ {% endfor %}
