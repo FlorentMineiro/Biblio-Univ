@@ -1,7 +1,8 @@
-{# templates/Catalogue/genre/genre.html.twig #}
+{% include 'base.html.twig' %}
+{% block body %}
+{% for genre in newGenre %}
 
- {% block body %}
-
- <h1>Genre: {{genreLivre}} </h1>
-
+Genre : {{genre.titre}}
+<br></br>
+{% endfor %}
 {% endblock %}

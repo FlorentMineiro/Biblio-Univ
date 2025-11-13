@@ -46,7 +46,7 @@ données.',
  'titre' => 'Physique Quantique - Fondements et Applications',
  'auteur' => 'Michel Le Bellac',
  'isbn' => '978-2759807802',
- 'genre' => 'sciences',
+ 'genre' => 'informatique',
  'annee_publication' => 2013,
  'nombre_pages' => 450,
  'disponible' => true,
@@ -96,12 +96,26 @@ données.',
         
    }
    #[Route('/catalogue/genre/{genre}')]
-   public function genre(string $genreLivre) : Response
+   public function genre(string $genre) : Response
    {
      
-    
+    //var_dump($genre);
+
+    $newGenre = [];
+
+    foreach($this->livres as $genreLivre)
+    {
+      //var_dump($genreLivre);
+      if ($genre == $genreLivre['genre'])
+      {
+        //var_dump($genre,$genreLivre['genre']);
+        $newGenre[]=$genreLivre;
+      }
+      
+    }
+    //var_dump($newGenre);
    return $this->render('Catalogue/genre/genre.html.twig',[
-      'genreLivre'=> $this->livres[$genreLivre],
+      'newGenre'=>$newGenre,
       
  ]);
 
