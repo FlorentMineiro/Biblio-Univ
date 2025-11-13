@@ -1,0 +1,18 @@
+{# templates/description.html.twig #}
+
+
+
+ {% block body %}
+
+{% if livre %}
+ <h1>Titre : {{livre.titre}} </h1>
+  <br></br>
+ <p>Description Du livre : {{livre.resume}}</p>
+
+ {% else %}
+    <p>Erreur 404</p>
+
+{% endif %}
+
+ {% endblock %}
+
