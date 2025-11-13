@@ -1,0 +1,16 @@
+{# templates/Catalogue/genre/genre.html.twig #}
+
+ {% block body %}
+
+{% if genreLivre %}
+ <h1>Genre: {{genreLivre}} </h1>
+ <br></br>
+ <p>Titre: {{livre.titre}} </p>
+  <br></br>
+  
+{% else %}
+    <p>Erreur 404</p>
+
+{% endif %}
+
+{% endblock %}
