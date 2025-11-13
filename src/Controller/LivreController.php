@@ -77,31 +77,32 @@ données.',
    #[Route('/livre/{id}')]
    public function livre(int $id) : Response
    {
-    $livres;
-      $livre = $livres[$id] ?? null;
+   
+     
  
           return $this->render('description.html.twig', [
                
-                  'livre' => $livre,
+                  'livre' => $this->livres[$id] ?? null,
                       
          
         ]);
         
-        if (!livres[$id])
+        if (!isset($this->livres[$id]) )//peut marcher selon les compilateur : !$this->livres[$id]
         {
-          return $this->createNotFoundException("Ce livre n'existe pas ");
+         throw $this->createNotFoundException("Ce livre n'existe pas ");
         }
            
 
         
    }
    #[Route('/catalogue/genre/{genre}')]
-   public function genre(int $id) : Response
+   public function genre(string $genreLivre) : Response
    {
      
+    
    return $this->render('Catalogue/genre/genre.html.twig',[
-      'genreLivre'=> $genreLivre[$id],
-      'livre'=> $livres[$id],
+      'genreLivre'=> $this->livres[$genreLivre],
+      
  ]);
 
    }
