@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -120,7 +121,18 @@ données.',
  ]);
 
    }
-  
+  #[Route('/api/catalogue')]
+  public function cata_json() : JsonResponse
+  {
+    $catalogue = [];
+
+    foreach($this->livres as $indexCatalogue)
+    {
+      $catalogue[]=$indexCatalogue;
+    }
+
+    return $this->json($catalogue);
+  }
    
    
   
