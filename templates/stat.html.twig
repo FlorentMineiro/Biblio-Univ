@@ -1,0 +1,66 @@
+{% include 'base.html.twig' %}
+
+{% block body %}
+{% set somme=0 %}
+{% set sommeDispo = 0 %}
+{% set sommeEmprunte = 0 %}
+
+    {% for livre in statistiques %}
+    {% set somme = somme + 1 %}
+        {% if livre.disponible %}
+        {% set sommeDispo = sommeDispo + 1 %}
+
+        {% else %}
+        {% set sommeEmprunte = sommeEmprunte + 1 %}
+
+        {% endif %}
+         
+        {% if livre.genre == 'informatique'  %}
+        <h3>
+        Genre : informatique
+        Titres : {{livre.titre}}
+        </h3>
+        
+        {% endif %}
+
+        {% if livre.genre == 'litterature'  %}
+        <h3>
+        Genre : litterature
+        Titres : {{livre.titre}}
+        </h3>
+        
+        {% endif %}
+
+        {% if livre.genre == 'sciences'  %}
+        <h3>
+        Genre : sciences
+        Titres : {{livre.titre}}
+        </h3>
+        
+        
+        {% endif %}
+
+         {% if livre.genre == 'histoire'  %}
+        <h3>
+        Genre : histoire
+        Titres : {{livre.titre}}
+        </h3>
+        
+        
+        {% endif %}
+
+        <h4>Auteurs avec</h4>
+        
+    {% endfor %}
+    <h1>Nombre total d'ouvrages : {{somme}}</h1>
+    <h2>
+    Livres Disponibles : {{sommeDispo}} vs
+    Livres Empruntés : {{sommeEmprunte}}
+    </h2>
+   {% for auteur in auteurs %}
+   <h4>Auteur étant le plus représenté : {{auteur}}</h4>
+   {% endfor %}
+
+
+
+{% endblock %}

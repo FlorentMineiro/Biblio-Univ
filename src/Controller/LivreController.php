@@ -133,6 +133,32 @@ données.',
 
     return $this->json($catalogue);
   }
+  #[Route('/statistiques')]
+  public function statistiques():Response
+  {
+    $statistiques = [];
+    $livres = $this->livres;
+    $counts = [];
+
+    for ($i = 1 ; $i<=count($livres);$i++)
+    {
+      $auteur = $livres[$i]['auteur'];
+      if(!isset($counts[$auteur]))
+      {
+        $counts[$auteur]= 0;
+      }
+      $counts[$auteur]++;
+    }
+
+    foreach($this->livres as $indexStat)
+    {
+      $statistiques[] = $indexStat;      
+    }
+    return $this->render('stat.html.twig',[
+        'statistiques'=>$statistiques,
+        'auteurs'=>$counts,
+    ]);
+  }
    
    
   
