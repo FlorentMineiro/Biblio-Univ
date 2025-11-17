@@ -49,7 +49,8 @@
         
         {% endif %}
 
-        <h4>Auteurs avec</h4>
+       
+      
         
     {% endfor %}
     <h1>Nombre total d'ouvrages : {{somme}}</h1>
@@ -57,10 +58,10 @@
     Livres Disponibles : {{sommeDispo}} vs
     Livres Empruntés : {{sommeEmprunte}}
     </h2>
-   {% for auteur in auteurs %}
-   <h4>Auteur étant le plus représenté : {{auteur}}</h4>
-   {% endfor %}
-
+   
+      {% for auteur,nb in auteurs %}
+        <h4> {{auteur}} :{{nb}} ouvrages </h4>
+        {% endfor %}
 
 
 {% endblock %}
