@@ -1,16 +1,36 @@
 {% include 'base.html.twig' %}
 {% block body %}
 {% for genre in newGenre %}
-{% if genre %}
- 
-  <br></br>
- Titre : {{genre.titre}}
 
- {% else %}
-    <h1>Ce genre n'existe pas  </h1>
+ 
+  </br>
+ Titre : {{genre.titre}}
+ 
+ 
+
+ 
+{% endfor %}
+</br>
+<a href='/'>Accueil</a>
+
+{% if newGenre == false %}
+ 
+ <h1>Ce genre n'existe pas  </h1>
+ {% if newGenre == 'sciences' %}
+ 
+ <h1>Il n'y a pas de livres de sciences </h1>
+
 
     {% endif %}
-{% endfor %}
-<br></br>
-<a href='/'>Accueil</a>
+     {% if newGenre == 'histoire' %}
+ 
+ <h1>Il n'a pas de livres d'histoire  </h1>
+
+
+    {% endif %}
+
+
+    {% endif %}
+   
+    
 {% endblock %}
