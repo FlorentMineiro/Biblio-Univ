@@ -1,8 +1,16 @@
 {% include 'base.html.twig' %}
 {% block body %}
 {% for genre in newGenre %}
+{% if genre %}
+ 
+  <br></br>
+ Titre : {{genre.titre}}
 
-Genre : {{genre.titre}}
-<br></br>
+ {% else %}
+    <h1>Ce genre n'existe pas  </h1>
+
+    {% endif %}
 {% endfor %}
+<br></br>
+<a href='/'>Accueil</a>
 {% endblock %}

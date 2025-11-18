@@ -1,4 +1,4 @@
-{# include base.html.twig #}
+{% include 'base.html.twig' %}
  {% block body %}
  
  <h1>Nom de la Bibliothèque : Plus jamais l'original</h1>
@@ -13,4 +13,13 @@
  </h2>
  <br></br>
  Il y a {{nbOuv}} dans cette Bibliothèque.
+ <br></br>
+ <a href='/Catalogue'>Catalogue</a>
+  <br></br>
+ <a href='/catalogue/genre/informatique'>Informatique</a>
+  <a href='/catalogue/genre/litterature'>Litterature</a>
+    <a href='/catalogue/genre/sciences'>Sciences</a>
+    <a href='/catalogue/genre/histoire'>Histoire</a>
+   <br></br>
+ <a href='/statistiques'>statistiques</a>
  {% endblock %}

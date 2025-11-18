@@ -14,7 +14,18 @@ Liste des Livres :
  <p><strong> Disponible : {{livre.disponible ? 'oui' : 'non' }} </p>
   <br></br>
  <p><strong> Nombre d'exemplaires : {{livre.nombre_exemplaires}} </p>
- <a href='/livre'> Description : </a>
+ {% if livre.id == 1 %}
+    <a href='/livre/1'>Description</a>
 
- 
+  {% endif %}
+  {% if livre.id == 2 %}
+    <a href='/livre/2'>Description</a>
+
+  {% endif %}
+  {% if livre.id == 3 %}
+    <a href='/livre/3'>Description</a>
+
+  {% endif %}
  {% endfor %}
+  <br></br>
+ <a href='/'>Accueil</a>
